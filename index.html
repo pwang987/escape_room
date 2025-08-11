@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방탈출: 오래된 교실의 비밀</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. 시작 안내창 -->
+    <div id="intro-modal-overlay">
+        <div class="modal-box">
+            <h2>오래된 교실의 비밀</h2>
+            <p>
+                정신을 차려보니 낯선 교실입니다.<br>
+                문은 굳게 잠겨 있고, 4자리 비밀번호를 입력해야만 열 수 있습니다.<br><br>
+                교실 곳곳에 숨겨진 단서들을 찾아 비밀번호를 알아내고, 이곳을 탈출하세요!
+            </p>
+            <button id="start-button">게임 시작</button>
+        </div>
+    </div>
+
+    <!-- 2. 게임 메인 화면 -->
+    <div id="game-container">
+        <!-- 클릭 가능한 오브젝트 영역 -->
+        <div class="clickable-object" id="window-obj" title="창문"></div>
+        <div class="clickable-object" id="speaker-obj" title="스피커"></div>
+        <div class="clickable-object" id="projector-obj" title="빔프로젝터"></div>
+        <div class="clickable-object" id="lectern-obj" title="교탁"></div>
+        <div class="clickable-object" id="door-obj" title="문"></div>
+    </div>
+
+    <!-- 3. 진행 상황 및 힌트 안내창 (추가됨) -->
+    <div id="hint-panel">
+        <h3>[ 진행 상황 ]</h3>
+        <p>목표: 4자리 비밀번호를 찾아 교실을 탈출하자.</p>
+        <hr>
+        <h4>획득한 힌트</h4>
+        <ul id="hint-list">
+            <li id="hint-slot-1">첫 번째 숫자: ???</li>
+            <li id="hint-slot-2">두 번째 숫자: ???</li>
+            <li id="hint-slot-3">세 번째 숫자: ???</li>
+            <li id="hint-slot-4">네 번째 숫자: ???</li>
+        </ul>
+    </div>
+
+    <!-- 4. 퍼즐 및 문 모달창 -->
+    <div id="puzzle-modal-overlay">
+        <div class="modal-box">
+            <h2 id="modal-title"></h2>
+            <p id="modal-puzzle"></p>
+            <div id="password-section" class="hidden">
+                <input type="text" id="password-input" placeholder="비밀번호 4자리" maxlength="4">
+            </div>
+            <p id="modal-result"></p>
+            <button id="action-button"></button>
+            <button id="close-button">닫기</button>
+        </div>
+    </div>
+    
+    <!-- 5. 탈출 성공 안내창 -->
+    <div id="win-modal-overlay">
+        <div class="modal-box">
+            <h2>🎉 탈출 성공! 🎉</h2>
+            <p>
+                축하합니다!<br>
+                당신은 오래된 교실의 모든 비밀을 풀고<br>
+                무사히 탈출했습니다.
+            </p>
+            <button id="restart-button">다시하기</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

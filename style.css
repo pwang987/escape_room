@@ -1,0 +1,121 @@
+/* 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Malgun Gothic', sans-serif;
+}
+
+/* 게임 컨테이너 */
+#game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url('bg01.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* 클릭 가능한 오브젝트 공통 스타일 */
+.clickable-object {
+    position: absolute;
+    cursor: pointer;
+    border-radius: 10px; /* 부드러운 하이라이트를 위해 추가 */
+    transition: all 0.2s ease-in-out; /* 부드러운 효과 전환 */
+    /* 개발 시 위치 확인용: border: 2px dashed red; */
+}
+
+/* ✨ 수정: 마우스 호버 시 하이라이트 효과 */
+.clickable-object:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.8);
+}
+
+/* 오브젝트별 위치 및 크기 지정 */
+#window-obj { top: 5%; left: 2%; width: 15%; height: 45%; }
+#speaker-obj { top: 12%; left: 52%; width: 4%; height: 10%; }
+#projector-obj { top: 10%; left: 65%; width: 8%; height: 15%; }
+#lectern-obj { top: 45%; left: 38%; width: 15%; height: 25%; }
+#door-obj { top: 25%; left: 88%; width: 11%; height: 55%; }
+
+/* ✨ 추가: 진행 상황 및 힌트 안내창 스타일 */
+#hint-panel {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 280px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 500; /* 모달보다는 아래, 게임 화면보다는 위에 위치 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+#hint-panel h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #FFD700; /* 금색 */
+}
+#hint-panel p {
+    font-size: 0.9em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+#hint-panel hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 10px 0;
+}
+#hint-panel h4 { margin-bottom: 10px; }
+#hint-panel ul { list-style-type: none; padding: 0; }
+#hint-panel li {
+    margin-top: 8px;
+    font-size: 1.1em;
+}
+#hint-panel li strong { color: #32CD32; /* 라임색 */ }
+
+
+/* 모달창 공통 스타일 */
+#intro-modal-overlay, #puzzle-modal-overlay, #win-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+#puzzle-modal-overlay, #win-modal-overlay { display: none; }
+
+.modal-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+/* ... (이하 버튼 등 나머지 CSS는 이전과 동일) ... */
+.modal-box h2 { margin-bottom: 15px; color: #333; }
+.modal-box p { margin-bottom: 20px; font-size: 1.1em; line-height: 1.6; color: #555; }
+#modal-result { font-weight: bold; color: #d9534f; }
+#password-section { margin-bottom: 20px; }
+#password-input { padding: 10px; width: 150px; text-align: center; font-size: 1.2em; border: 2px solid #ccc; border-radius: 5px; }
+button { padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; margin: 0 5px; transition: background-color 0.2s; }
+#start-button, #action-button, #restart-button { background-color: #5cb85c; color: white; }
+#start-button:hover, #action-button:hover, #restart-button:hover { background-color: #4cae4c; }
+#close-button { background-color: #f0ad4e; color: white; }
+#close-button:hover { background-color: #eea236; }
+.hidden { display: none; }
